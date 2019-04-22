@@ -27,7 +27,10 @@ type Author struct {
 // Book slice (array of book) go requires us to declare our array length so we use a slice here instead
 var books []Book
 
-// similar to app.get() in express
+// these functions are similar to app.get() controllers in express
+// using * pointers are pointer receivers that point to the memory location which can be modified
+// without *, pointers are just value receivers which will hold a local copy of that value.
+
 func getBooks(w http.ResponseWriter, r *http.Request) {
 	w.Header().Set("Content-Type", "application/json")
 	json.NewEncoder(w).Encode(books)
